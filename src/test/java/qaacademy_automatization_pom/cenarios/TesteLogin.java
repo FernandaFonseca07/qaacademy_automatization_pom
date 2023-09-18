@@ -31,14 +31,24 @@ public class TesteLogin {
     }
 
     @Test
-    public void testeLogin () throws InterruptedException{
+    public void testeLogin() throws InterruptedException {
         String msgValidacao = "bem vindo ao BugBank :)";
         loginpage.preencherEmail(email);
         loginpage.preencherSenha(senha);
         loginpage.clicarAcessar();
         Thread.sleep(2000);
-        mensagemConfirmacao (msgValidacao);
+        mensagemConfirmacao(msgValidacao);
         confirmacaoURL("/home");
+    }
+
+    @Test
+    public void testeLoginErrado() throws InterruptedException {
+        String msgDeErro = "Usuário ou senha inválido.";
+        loginpage.preencherEmail(email);
+        loginpage.preencherSenha("erro");
+        loginpage.clicarAcessar();
+        mensagemConfirmacao(msgDeErro);
+        loginpage.fecharMensagemErro();    
     }
 
     @After
