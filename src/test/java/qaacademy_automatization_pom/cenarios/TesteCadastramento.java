@@ -53,8 +53,6 @@ public class TesteCadastramento {
 
     public void mensagemConfirmacao (String mensagemNaTela){
                 Assert.assertTrue(driver.getPageSource().contains(mensagemNaTela));
-
-
     }
 }
 
